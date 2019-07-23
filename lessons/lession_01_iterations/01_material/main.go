@@ -32,8 +32,24 @@ func fnAsterisks2(n int) {
 	}
 }
 
+func fnFibonacci(n int) {
+	a := 0
+	b := 1
+	for {
+		if a > n {
+			break
+		}
+		fmt.Print(a, " ")
+		c := a + b
+		a = b
+		b = c
+	}
+}
+
 func main() {
 	// fnFactorial(5)
 	// fnAsterisks(5)
-	fnAsterisks2(4)
+	// fnAsterisks2(4)
+	fnFibonacci(15)
+
 }
