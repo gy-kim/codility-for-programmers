@@ -6,11 +6,24 @@ import (
 )
 
 func main() {
+	result := Solution(32)
+	fmt.Println("result:", result)
+}
 
-	i := int64(9)
+func Solution(N int) int {
+	i := int64(N)
 	str := fmt.Sprint(strconv.FormatInt(i, 2))
-	fmt.Println(str)
+	max, len := 0, 0
 	for _, s := range str {
-		fmt.Println(string(s))
+		if string(s) == "0" {
+			len++
+			continue
+		}
+		if max < len {
+			max = len
+			len = 0
+		}
 	}
+
+	return max
 }
