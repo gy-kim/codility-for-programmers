@@ -22,7 +22,7 @@ import (
 )
 
 func main() {
-	result := Solution(32)
+	result := Solution(561892)
 	fmt.Println("result:", result)
 }
 
@@ -37,8 +37,8 @@ func Solution(N int) int {
 		}
 		if max < len {
 			max = len
-			len = 0
 		}
+		len = 0
 	}
 
 	return max
