@@ -66,25 +66,31 @@ func Solution(N int, A []int) []int {
 
 	arr := make([]int, N)
 	max := 0
+	base := 0
 
 	for _, x := range A {
-		fmt.Println(arr)
-		cnt := 0
-		if 1 <= x && x <= N {
-			cnt = arr[x-1] + 1
-			arr[x-1] = cnt
-			if max < cnt {
-				max = cnt
-			}
-			continue
-		}
 		if x == N+1 {
-			for i := range arr {
-				arr[i] = max
+			base = max
+		} else {
+			cnt := arr[x-1]
+			if cnt < base {
+				cnt = base
+			}
+			cnt++
+
+			arr[x-1] = cnt
+
+			if max < arr[x-1] {
+				max = arr[x-1]
 			}
 		}
 	}
 
-	// fmt.Println(arr)
+	for idx, v := range arr {
+		if v < base {
+			arr[idx] = base
+		}
+	}
+
 	return arr
 }
