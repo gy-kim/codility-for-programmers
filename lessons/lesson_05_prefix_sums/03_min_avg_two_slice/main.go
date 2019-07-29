@@ -62,7 +62,8 @@ func Solution(A []int) int {
 	minAvg := float64(0)
 
 	for i := 0; i < len(A)-1; i++ {
-		avg2 := float64(A[i]+A[i+1]) / 2
+		twoSum := A[i] + A[i+1]
+		avg2 := float64(twoSum) / 2
 		fmt.Println("i:", i, "avg2:", avg2)
 
 		if i == 0 {
@@ -75,7 +76,7 @@ func Solution(A []int) int {
 		}
 
 		if i < len(A)-2 {
-			avg3 := float64(A[i]+A[i+1]+A[i+2]) / 3
+			avg3 := float64(twoSum+A[i+2]) / 3
 			fmt.Println("avg3:", avg3)
 
 			if avg3 < minAvg {
